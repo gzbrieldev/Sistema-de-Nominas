@@ -4,7 +4,7 @@
     {
         private string primerNombre;
         private string apellidoPaterno;
-        private readonly string numeroSeguroSocial;
+        private readonly string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
 
         public string PrimerNombre
         {
