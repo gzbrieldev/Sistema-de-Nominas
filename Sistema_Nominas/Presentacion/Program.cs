@@ -1,6 +1,6 @@
-﻿namespace Sistema_Nominas
+﻿namespace Sistema_Nominas.Presentacion
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
