@@ -11,9 +11,20 @@ namespace Sistema_Nominas.Presentacion
             EmpleadoRepositorio repo = new EmpleadoRepositorio();
             EmpleadoServicio servicio = new EmpleadoServicio(repo);
 
+            // Provisional solo para asegurarme de que cumple con el requisito de los 1000 usuarios
+            for (int i = 1; i <= 1000; i++)
+            {
+                var emp = new EmpleadoAsalariado($"Empleado{i}", "Test", i.ToString("D5"), 1000 + i
+                );
+
+                servicio.RegistrarEmpleados(emp);
+            }
+
+
             int seleccion = 0;
             do
             {
+                // Variables para permitir la lectura y escritura de los empleados
                 string nombre;
                 string apellidoPaterno;
                 string nss;
@@ -23,7 +34,6 @@ namespace Sistema_Nominas.Presentacion
                 decimal salarioSemanal;
                 int horasTrabajadas;
 
-                Console.WriteLine("###############################");
                 Console.WriteLine("Sistema de Nominas");
 
                 Console.WriteLine("\nMenú");
@@ -33,7 +43,6 @@ namespace Sistema_Nominas.Presentacion
                 Console.WriteLine("4. Generar reporte semanal");
                 Console.WriteLine("5. Limpiar consola");
                 Console.WriteLine("0. Salir");
-                Console.WriteLine("\n###############################");
 
                 Console.Write("\nSeleccione una opción (1-5): ");
                 seleccion = int.Parse(Console.ReadLine());
@@ -75,11 +84,13 @@ namespace Sistema_Nominas.Presentacion
                                     servicio.RegistrarEmpleados(new EmpleadoAsalariadoPorComision(nombre, apellidoPaterno, nss, salarioSemanal,ventasBrutas, tarifaComision));
                                     Console.WriteLine("Empleado asalariado por comisión agregado exitosamente!");
                                 }
+
                                 else
                                 {
                                     servicio.RegistrarEmpleados(new EmpleadoAsalariado(nombre, apellidoPaterno, nss, salarioSemanal));
                                     Console.WriteLine("Empleado asalariado agregado exitosamente!");
                                 }
+
                                 break;
 
                             case 2:
@@ -92,8 +103,8 @@ namespace Sistema_Nominas.Presentacion
 
                                 servicio.RegistrarEmpleados(new EmpleadoPorHoras(nombre, apellidoPaterno, nss, sueldoPorHora, horasTrabajadas));
                                 Console.WriteLine("Empleado por horas agregado correctamente!");
-                                break
-                                    ;
+                                break;
+
                             case 3:
                                 Console.Write("Ingrese las ventas brutas: ");
                                 ventasBrutas = decimal.Parse(Console.ReadLine());
@@ -104,7 +115,6 @@ namespace Sistema_Nominas.Presentacion
                                 servicio.RegistrarEmpleados(new EmpleadoPorComision(nombre, apellidoPaterno, nss, ventasBrutas, tarifaComision));
                                 Console.WriteLine("Empleado por comision agregado correctamente!");
                                 break;
-
 
                         }
                         break;
@@ -126,6 +136,7 @@ namespace Sistema_Nominas.Presentacion
                             Console.Write("Ingrese el nuevo nombre (ENTER SI DESEA DEJAR EL MISMO): ");
                             nombre = Console.ReadLine();
 
+                            // Si el usuario da ENTER, se ingresa "" y el nombre se queda igual
                             if(nombre == "")
                             {
                                 nombre = existente.PrimerNombre;
@@ -134,6 +145,7 @@ namespace Sistema_Nominas.Presentacion
                             Console.Write("Ingrese el nuevo apellido (ENTER SI DESEA DEJAR EL MISMO): ");
                             string apellido = Console.ReadLine();
 
+                            // Si el usuario da ENTER, se ingresa "" y el apellido se queda igual
                             if (apellido == "")
                             {
                                 apellido = existente.ApellidoPaterno;
@@ -200,7 +212,6 @@ namespace Sistema_Nominas.Presentacion
                         {
                             Console.WriteLine(e); 
                         }
-
                             break;
 
                         case 4:

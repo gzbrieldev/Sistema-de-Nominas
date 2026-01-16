@@ -5,7 +5,7 @@
         private static int contador;
         private string primerNombre;
         private string apellidoPaterno;
-        private string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
+        private readonly string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
 
         public string PrimerNombre
         {
