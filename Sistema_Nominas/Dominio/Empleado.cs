@@ -2,6 +2,7 @@
 {
     public abstract class Empleado
     {
+        static int contador;
         private string primerNombre;
         private string apellidoPaterno;
         private readonly string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
@@ -22,6 +23,7 @@
             PrimerNombre= primernombre;
             ApellidoPaterno= apellidopaterno;
             numeroSeguroSocial= nss;
+            contador++;
         }
 
         public abstract decimal CalcularPago();
