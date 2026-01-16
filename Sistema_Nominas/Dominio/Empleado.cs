@@ -5,17 +5,22 @@
         private static int contador;
         private string primerNombre;
         private string apellidoPaterno;
-        private readonly string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
+        private string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
 
         public string PrimerNombre
         {
-            get { return primerNombre; }
-            set { primerNombre = value; }
+            get => primerNombre; 
+            set => primerNombre = value; 
         }
         public string ApellidoPaterno
         {
-            get { return apellidoPaterno; }
-            set { apellidoPaterno = value; }
+            get => apellidoPaterno; 
+            set => apellidoPaterno = value; 
+        }
+
+        public string NumeroSeguroSocial
+        {
+            get => numeroSeguroSocial;
         }
 
         public static int Contador
