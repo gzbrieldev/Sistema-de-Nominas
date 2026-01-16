@@ -19,9 +19,13 @@ namespace Sistema_Nominas.Aplicacion
 
         public void ActualizarEmpleado(Empleado empleado)
         {
-            repoitorio.ActualizarEmpleado(empleado); // por implementar
+            repoitorio.ActualizarEmpleado(empleado);
         }
 
+        public Empleado BuscarEmpleado(string nss)
+        {
+            return repoitorio.BuscarPorNss(nss);
+        }
         public List<Empleado> ListarEmpleados()
         {
             return repoitorio.ListarEmpleados(); 

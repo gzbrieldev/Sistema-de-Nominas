@@ -1,4 +1,5 @@
 ﻿using Sistema_Nominas.Dominio;
+using System;
 
 namespace Sistema_Nominas.Infraestructura
 {
@@ -13,7 +14,8 @@ namespace Sistema_Nominas.Infraestructura
 
         public void ActualizarEmpleado(Empleado empleado)
         {
-            throw new NotImplementedException(); // por implementar
+            var index = listaEmpleados.FindIndex(e => e.NumeroSeguroSocial == empleado.NumeroSeguroSocial);
+            if (index != -1) { listaEmpleados[index] = empleado; }
         }
 
         public void GenerarReporte()
@@ -28,6 +30,11 @@ namespace Sistema_Nominas.Infraestructura
         public List<Empleado> ListarEmpleados()
         {
             return listaEmpleados;
+        }
+
+        public Empleado BuscarPorNss(string nss)
+        {
+            return listaEmpleados.FirstOrDefault(e => e.NumeroSeguroSocial == nss);
         }
     }
 }
