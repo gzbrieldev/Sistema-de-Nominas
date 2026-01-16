@@ -42,5 +42,7 @@
         {
             return VentasBrutas * TarifaComision;
         }
+
+        public override string ToString() { return base.ToString() + $", Tipo: Por Comisión, Ventas: {VentasBrutas:C}, Comisión: {TarifaComision:P}"; }
     }
 }

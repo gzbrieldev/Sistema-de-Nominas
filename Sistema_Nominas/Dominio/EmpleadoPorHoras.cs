@@ -35,5 +35,7 @@
             }
             else { return 0; }
         }
+
+        public override string ToString() { return base.ToString() + $", Tipo: Por Horas, Sueldo/Hora: {SueldoPorHora:C}, Horas: {HorasTrabajadas}"; }
     }
 }

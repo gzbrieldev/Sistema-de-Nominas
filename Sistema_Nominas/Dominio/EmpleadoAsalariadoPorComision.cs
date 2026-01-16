@@ -44,5 +44,7 @@
             return base.CalcularPago() + (VentasBrutas * TarifaComision);
         }
 
+        public override string ToString() { return base.ToString() + $", Tipo: Asalariado + Comisión, Base: {SalarioSemanal:C}, Ventas: {VentasBrutas:C}, Comisión: {TarifaComision:P}"; }
+
     }
 }

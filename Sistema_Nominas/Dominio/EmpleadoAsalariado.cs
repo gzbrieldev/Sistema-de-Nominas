@@ -17,5 +17,7 @@
         {
             return SalarioSemanal;
         }
+
+        public override string ToString() { return base.ToString() + $", Tipo: Asalariado, Salario Semanal: {SalarioSemanal:C}"; }
     }
 }
