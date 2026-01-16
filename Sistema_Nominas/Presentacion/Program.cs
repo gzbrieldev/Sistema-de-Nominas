@@ -107,6 +107,14 @@ namespace Sistema_Nominas.Presentacion
                         }
 
                             break;
+
+                        case 4:
+                        servicio.GenerarReporte();
+                        break;
+
+                    default:
+                        Console.WriteLine("La opción ingresada no existe");
+                        break;
                 }
             } while (seleccion != 0);
            
