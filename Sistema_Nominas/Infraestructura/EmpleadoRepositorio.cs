@@ -13,7 +13,7 @@ namespace Sistema_Nominas.Infraestructura
 
         public void ActualizarEmpleado(Empleado empleado)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException(); // por implementar
         }
 
         public void GenerarReporte()
@@ -25,7 +25,7 @@ namespace Sistema_Nominas.Infraestructura
             }
         }
 
-        public List<Empleado> listarEmpleados()
+        public List<Empleado> ListarEmpleados()
         {
             return listaEmpleados;
         }

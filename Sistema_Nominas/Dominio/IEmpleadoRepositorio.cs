@@ -5,7 +5,7 @@
         void AgregarEmpleado(Empleado empleado);
         void ActualizarEmpleado(Empleado empleado);
 
-        List<Empleado> listarEmpleados();
+        List<Empleado> ListarEmpleados();
         void GenerarReporte();
     }
 }
