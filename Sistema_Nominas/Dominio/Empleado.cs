@@ -2,7 +2,7 @@
 {
     public abstract class Empleado
     {
-        static int contador;
+        private static int contador;
         private string primerNombre;
         private string apellidoPaterno;
         private readonly string numeroSeguroSocial; // Solo se puede inicializar, no modificar 
@@ -18,6 +18,11 @@
             set { apellidoPaterno = value; }
         }
 
+        public static int Contador
+        {
+            get => contador;
+        }
+
         public Empleado(string primernombre, string apellidopaterno, string nss)
         {
             PrimerNombre= primernombre;
@@ -28,6 +33,6 @@
 
         public abstract decimal CalcularPago();
 
-        public override string ToString() { return $"Nombre: {PrimerNombre} {ApellidoPaterno}, NSS: {numeroSeguroSocial}"; }
+        public override string ToString() { return $"- Nombre: {PrimerNombre} {ApellidoPaterno}, NSS: {numeroSeguroSocial}"; }
     }
 }
