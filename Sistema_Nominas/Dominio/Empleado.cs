@@ -28,6 +28,6 @@
 
         public abstract decimal CalcularPago();
 
-        public override string ToString() { return $"NSS: {numeroSeguroSocial}, Nombre: {PrimerNombre} {ApellidoPaterno}"; }
+        public override string ToString() { return $"Nombre: {PrimerNombre} {ApellidoPaterno}, NSS: {numeroSeguroSocial}"; }
     }
 }
