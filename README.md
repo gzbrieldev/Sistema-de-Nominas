@@ -1,5 +1,5 @@
-# Sistema de Nómina en C#
-
+# Sistema de Nómina en C# (aplicación de consola)
+C# .NET 8.0
 ## Descripción
 Este proyecto implementa un sistema de nómina en C#, con una arquitectura orientada a objetos y separación de responsabilidades.  
 Permite registrar, buscar, actualizar y listar empleados de distintos tipos:
@@ -27,5 +27,6 @@ Cada empleado tiene un **Número de Seguro Social (NSS)** único e inmutable.
 - Servicio
 - Dominio
 - Infraestructura
+
 
 
