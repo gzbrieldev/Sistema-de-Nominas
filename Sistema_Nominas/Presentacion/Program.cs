@@ -12,13 +12,12 @@ namespace Sistema_Nominas.Presentacion
             EmpleadoServicio servicio = new EmpleadoServicio(repo);
 
             // Provisional solo para asegurarme de que cumple con el requisito de los 1000 usuarios
-            for (int i = 1; i <= 1000; i++)
-            {
-                var emp = new EmpleadoAsalariado($"Empleado{i}", "Test", i.ToString("D5"), 1000 + i
-                );
+            //for (int i = 1; i <= 1000; i++)
+            //{
+            //    var emp = new EmpleadoAsalariado($"Empleado{i}", "Test", i.ToString("D5"), 1000 + i);
 
-                servicio.RegistrarEmpleados(emp);
-            }
+            //    servicio.RegistrarEmpleados(emp);
+            //}
 
 
             int seleccion = 0;
@@ -43,6 +42,7 @@ namespace Sistema_Nominas.Presentacion
                 Console.WriteLine("4. Generar reporte semanal");
                 Console.WriteLine("5. Limpiar consola");
                 Console.WriteLine("0. Salir");
+
 
                 Console.Write("\nSeleccione una opción (1-5): ");
                 seleccion = int.Parse(Console.ReadLine());
@@ -141,6 +141,7 @@ namespace Sistema_Nominas.Presentacion
                             {
                                 nombre = existente.PrimerNombre;
                             }
+                            existente.PrimerNombre = nombre;
 
                             Console.Write("Ingrese el nuevo apellido (ENTER SI DESEA DEJAR EL MISMO): ");
                             string apellido = Console.ReadLine();
@@ -150,19 +151,17 @@ namespace Sistema_Nominas.Presentacion
                             {
                                 apellido = existente.ApellidoPaterno;
                             }
+                            existente.ApellidoPaterno = apellido;
 
-                            Empleado empActualizado = null;
-
-                            if (existente is EmpleadoAsalariado)
+                            if (existente is EmpleadoAsalariado asalariado)
                             {
                                 Console.Write("Ingrese el nuevo salario semanal: ");
                                 salarioSemanal = decimal.Parse(Console.ReadLine());
 
-                                empActualizado = new EmpleadoAsalariado(nombre, apellido, nss, salarioSemanal);
-                               
+                                asalariado.SalarioSemanal = salarioSemanal;         
                             }
 
-                            else if (existente is EmpleadoPorHoras)
+                            else if (existente is EmpleadoPorHoras porhoras)
                             {
                                 Console.Write("Ingrese el nuevo sueldo por hora: ");
                                 sueldoPorHora = decimal.Parse(Console.ReadLine());
@@ -170,10 +169,11 @@ namespace Sistema_Nominas.Presentacion
                                 Console.Write("Ingrese las nuevas horas trabajadas: ");
                                 horasTrabajadas = int.Parse(Console.ReadLine());
 
-                                empActualizado = new EmpleadoPorHoras(nombre, apellido, nss, sueldoPorHora, horasTrabajadas);
+                                porhoras.SueldoPorHora = sueldoPorHora;
+                                porhoras.HorasTrabajadas = horasTrabajadas;
                             }
 
-                            else if (existente is EmpleadoPorComision)
+                            else if (existente is EmpleadoPorComision porcomision)
                             {
                                 Console.Write("Ingrese las nuevas ventas brutas: ");
                                 ventasBrutas = decimal.Parse(Console.ReadLine());
@@ -181,11 +181,12 @@ namespace Sistema_Nominas.Presentacion
                                 Console.Write("Ingrese la nueva tarifa de comisión: ");
                                 tarifaComision = int.Parse(Console.ReadLine());
 
-                                empActualizado = new EmpleadoPorComision(nombre, apellido, nss, ventasBrutas, tarifaComision);
+                                porcomision.VentasBrutas = ventasBrutas;
+                                porcomision.TarifaComision = tarifaComision;
                                 
                             }
 
-                            else if (existente is EmpleadoAsalariadoPorComision)
+                            else if (existente is EmpleadoAsalariadoPorComision porAC)
                             {
                                 Console.Write("Ingrese el nuevo salario semanal: ");
                                 salarioSemanal = decimal.Parse(Console.ReadLine());
@@ -196,11 +197,13 @@ namespace Sistema_Nominas.Presentacion
                                 Console.Write("Ingrese la nueva tarifa de comisión (1-100): ");
                                 tarifaComision = int.Parse(Console.ReadLine());
 
-                                empActualizado = new EmpleadoAsalariadoPorComision(nombre, apellido, nss, salarioSemanal, ventasBrutas, tarifaComision);
+                                porAC.SalarioSemanal = salarioSemanal;
+                                porAC.VentasBrutas = ventasBrutas;
+                                porAC.TarifaComision = tarifaComision;
                             }
 
                             // Actualizar en el servicio
-                            servicio.ActualizarEmpleado(empActualizado);
+                            servicio.ActualizarEmpleado(existente);
                         }
                         break;
 

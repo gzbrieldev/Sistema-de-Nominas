@@ -5,6 +5,9 @@ namespace Sistema_Nominas.Infraestructura
 {
     public class EmpleadoRepositorio : IEmpleadoRepositorio
     {
+
+        // Implementación de IEmpleadoRepositorio, aqui se trabajan los metodos y funcionalidades como tal
+
         private static List<Empleado> listaEmpleados = new List<Empleado>();
 
         public void AgregarEmpleado(Empleado empleado)
